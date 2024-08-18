@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>405 エラーページ</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            color: white;
+        }
+
+        .error-container {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .error-code {
+            font-size: 100px;
+            margin: 0;
+        }
+
+        .error-message {
+            font-size: 24px;
+            margin: 10px 0;
+        }
+
+        .error-description {
+            font-size: 18px;
+            margin: 20px 0;
+        }
+
+        .home-link {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            border: 2px solid white;
+            border-radius: 5px;
+            text-decoration: none;
+            color: white;
+            font-size: 16px;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        .home-link:hover {
+            background: white;
+            color: #2a5298;
+        }
+    </style>
+</head>
+<body>
+    <div class="error-container">
+        <h1 class="error-code">405</h1>
+        <p class="error-message">メソッドが許可されていません</p>
+        <p class="error-description">このメソッドはサポートされていません。</p>
+        <a th:href="@{/}" class="home-link">ホームに戻る</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" th:href="@{/css/home.css}" />
+		<link rel="stylesheet" th:href="@{/css/header.css}" />
+		<link rel="stylesheet" th:href="@{/css/footer.css}" />
+		<title>技術ブログ - ホーム</title>
+	</head>
+	<body>
+
+	<header>
+		<div class="header-left">
+			<a th:href="@{/blogs}" class="site-title">技術ブログ</a>
+		</div>
+		<div class="header-right">
+			<p th:text="${user.username}">さん </p>
+			<a th:href="@{/blogs/logout}" class="header-link">ログアウト</a>
+		</div>
+	</header>
+
+	<div class="content">
+		<div class="sidebar">
+			<div class="profile-card">
+				<h2>プロフィール</h2>
+				<p th:text="${user.username}">ユーザー名</p>
+				<p th:text="${user.roles}">権限</p>
+			</div>
+			<br>
+			<div class="profile-card">
+				<h2>ブログ投稿</h2>
+				<a th:href="@{/blogs/registPost}">ブログ作成</a>
+			</div>
+			<br>
+			<div class="profile-card">
+				<h2>カテゴリー</h2>
+				<a th:href="@{/blogs/addCategory}">カテゴリー追加</a>
+			</div>
+		</div>
+		<div class="main-content">
+			<div class="posts" th:each="post : ${posts}">
+				<div class="post-card">
+					<a th:href="@{/blogs/post/{id}(id=${post.postId})}">
+						<h2 th:text="${post.PostTitle}"></h2>
+						<h3 th:text="${post.body}"></h3>
+						<p th:text="${post.userName}"></p>
+						<p th:text="${post.createdAt}"></p>
+					詳しく見る</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<footer>
+		<p>© 2024 技術ブログ. All rights reserved.</p>
+<!--		<p><a th:href="@{/blogs/privacy}">プライバシーポリシー</a> | <a th:href="@{/blogs/terms}">利用規約</a></p>-->
+	</footer>
+	</body>
+
+</html>

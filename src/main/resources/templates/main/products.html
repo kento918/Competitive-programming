@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ページ準備中</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            color: white;
+        }
+
+        .error-container {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .error-code {
+            font-size: 100px;
+            margin: 0;
+        }
+
+        .error-message {
+            font-size: 24px;
+            margin: 10px 0;
+        }
+
+        .error-description {
+            font-size: 18px;
+            margin: 20px 0;
+        }
+
+        .home-link {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            border: 2px solid white;
+            border-radius: 5px;
+            text-decoration: none;
+            color: white;
+            font-size: 16px;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        .home-link:hover {
+            background: white;
+            color: #2a5298;
+        }
+    </style>
+</head>
+<body>
+    <div class="error-container">
+        <h1 class="error-code">準備中</h1>
+        <p class="error-message">ページの準備ができていません</p>
+        <p class="error-description">お手数ですが、後ほど再度お試しください。</p>
+        <a href="/" class="home-link">ホームに戻る</a>
+    </div>
+</body>
+</html>

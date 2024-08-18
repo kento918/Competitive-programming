@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" th:href="@{/css/showPost.css}" />
+    <link rel="stylesheet" th:href="@{/css/header.css}" />
+    <link rel="stylesheet" th:href="@{/css/footer.css}" />
+</head>
+
+<body>
+    <header>
+        <div class="header-left">
+            <a th:href="@{/blogs}" class="site-title">技術ブログ</a>
+        </div>
+        <div class="header-right">
+            <a th:href="@{/blogs/home}" class="header-link">ホームへ</a>
+            <a th:href="@{/blogs/logout}" class="header-link">ログアウト</a>
+        </div>
+    </header>
+
+    <div class="content">
+        <div class="blog-post">
+            <h1 th:text="${post.title}">投稿タイトル</h1>
+            <p class="meta">
+                <span th:text="${post.userName}">投稿者名</span> | <span th:text="${post.createdAt}">投稿日</span> | <span th:text="${post.categoryName}">カテゴリー</span>
+            </p>
+            <div class="post-body" th:utext="${post.body}">
+                 投稿内容がここに表示されます 
+            </div>
+        </div>
+        <div class="blog-post" th:if="${post.isWriter}">
+			<div class="menu">
+				<a th:href="@{/blogs/updatePost/{id}(id=${post.Id})}">修正</a>
+				<a th:href="@{/blogs/deletePost/{id}(id=${post.Id})}">削除</a>
+			</div>
+		</div>
+    </div>
+
+    <footer>
+        <p>© 2024 技術ブログ. All rights reserved.</p>
+<!--        <p><a th:href="@{/blogs/privacy}">プライバシーポリシー</a> | <a th:href="@{/blogs/terms}">利用規約</a></p>-->
+    </footer>
+</body>
+
+</html>

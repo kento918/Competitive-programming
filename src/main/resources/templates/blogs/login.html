@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" th:href="@{/css/registUser.css}" />
+    <link rel="stylesheet" th:href="@{/css/header.css}" />
+    <link rel="stylesheet" th:href="@{/css/footer.css}" />
+    <title>技術ブログ - ログイン</title>
+</head>
+<body>
+	<header>
+		<div class="header-left">
+			<a th:href="@{/blogs}" class="site-title">技術ブログ</a>
+		</div>
+	</header>
+	<div class="content">
+		
+	    <div class="login-content">
+	        <form action="#" th:action="@{/blogs/login}" method="POST" id="loginForm" onsubmit="return validateForm()">
+	            <div class="form-group">
+	                <label for="name">ユーザー名:</label>
+	                <input type="text" id="username" name="username"  required>
+	                <span id="name-error" class="error-message"></span>
+	            </div>
+	            <div class="form-group">
+	                <label for="password">パスワード:</label>
+	                <input type="password" id="password" name="password" required>
+	                <span id="password-error" class="error-message"></span>
+	            </div>
+	            <div class="form-actions">
+	                <button type="submit" class="login-button">ログイン</button>
+	            </div>
+	        </form>
+	        <br>
+	        <form action="#" th:action="@{/blogs/login}" method="POST" id="guestLoginForm">
+	            <div>
+	                <input type="hidden" name="username" value="guest">
+	                <input type="hidden" name="password" value="guest">
+	            </div>
+	            <div class="form-actions">
+	                <button type="submit" class="guest-button">ゲストとしてログイン</button>
+	            </div>
+	        </form>
+	    </div>
+
+	</div>
+    <script src="/js/login.js"></script>
+    
+	<footer>
+		<p>© 2024 技術ブログ. All rights reserved.</p>
+<!--		<p><a href="/blogs/privacy">プライバシーポリシー</a> | <a href="/blogs/terms">利用規約</a></p>-->
+	</footer>
+</body>
+</html>

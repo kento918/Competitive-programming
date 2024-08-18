@@ -1,0 +1,15 @@
+@charset "UTF-8";
+
+.input-menu{
+	background-color: #A9DFFE;
+}
+
+.input-menu .input-group{
+	background-color: palegoldenrod;
+}
+.input-menu .input-group .input-title{
+	background-color: paleturquoise;
+}
+.input-menu .input-group .input-title .inputs{
+	background-color: palegreen;
+}
