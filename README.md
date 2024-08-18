@@ -1,7 +1,8 @@
 # myblog system
 #### 現在公開している自己学習で作成したサイトになります。
 #### http://kentotechblog.com/ でサイトのほうには移動できます。
-#### 
+#### 更新頻度は低めになっていますが、躓いたところ、困ったところをまとめているサイトになります。
+
 <details><summary>コードを使用したい場合</summary>
 1.データベースについてはsql_sorce.sqlをご活用ください。
 （テストしていないです。カラムは問題ないのでキー回り削除したら最悪大丈夫だと思います。）
@@ -34,4 +35,5 @@ spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
 	</mappers>
 </configration>
 ```
+
 </details>
