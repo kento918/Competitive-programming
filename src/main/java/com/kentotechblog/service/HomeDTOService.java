@@ -27,12 +27,8 @@ public class HomeDTOService {
 		List<PostEntity> posts = ps.getPostByAuthorId(authorId);
 		List<HomePostDTO> postList = new ArrayList<>();
 		for(PostEntity p : posts) {
-			if(p.getTitle().length() >= titleMessageLength) {
-				p.setTitle(p.getTitle().substring(0,titleMessageLength));
-			}
-			if(p.getBody().length() >= bodyMessageLength) {
-				p.setBody(p.getBody().substring(0,bodyMessageLength)+" ...");
-			}
+			p.setTitle(StringToHtmlService.createShortTitleOrBody(p.getTitle(),0));
+			p.setBody(StringToHtmlService.createShortTitleOrBody(p.getBody(),1));
 			postList.add(new HomePostDTO(username, p));
 		}
 		return postList;
@@ -50,12 +46,8 @@ public class HomeDTOService {
 		List<PostEntity> posts = ps.getPostByCategoryId(categoryId);
 		List<HomePostDTO> list = new ArrayList<>();
 		for(PostEntity p : posts) {
-			if(p.getTitle().length() >= titleMessageLength) {
-				p.setTitle(p.getTitle().substring(0,titleMessageLength));
-			}
-			if(p.getBody().length() >= bodyMessageLength) {
-				p.setBody(p.getBody().substring(0,bodyMessageLength)+" ...");
-			}
+			p.setTitle(StringToHtmlService.createShortTitleOrBody(p.getTitle(),0));
+			p.setBody(StringToHtmlService.createShortTitleOrBody(p.getBody(),1));
 			list.add(new HomePostDTO(us.getNameById(p.getAuthorId()), p));
 		}
 		return list;

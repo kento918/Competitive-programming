@@ -21,6 +21,7 @@ import com.kentotechblog.blogs.entity.UserEntity;
 import com.kentotechblog.service.CategoryService;
 import com.kentotechblog.service.PostService;
 import com.kentotechblog.service.ShowPostDTOService;
+import com.kentotechblog.service.StringToHtmlService;
 import com.kentotechblog.service.UserService;
 
 import jakarta.servlet.http.HttpServletResponse;
@@ -63,6 +64,7 @@ public class PostController {
 			Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 			UserEntity user = userService.getUserByName(auth.getName());
 			post.setCategoryId(categoryId);
+			post.setBody(StringToHtmlService.toHtml(post.getBody()));
 			postService.savePost(post, user);
 			log.info("save post " + auth.getName() + " succsess");
 

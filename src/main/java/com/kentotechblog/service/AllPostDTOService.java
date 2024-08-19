@@ -29,12 +29,8 @@ public class AllPostDTOService {
 		List<PostEntity> postEntitiys = ps.getAll();
 		
 		for (PostEntity post : postEntitiys) {
-			if(post.getTitle().length() >= titleMessageLength) {
-				post.setTitle(post.getTitle().substring(0,titleMessageLength));
-			}
-			if(post.getBody().length() >= bodyMessageLength) {
-				post.setBody(post.getBody().substring(0,bodyMessageLength)+" ...");
-			}
+			post.setTitle(StringToHtmlService.createShortTitleOrBody(post.getTitle(),0));
+			post.setBody(StringToHtmlService.createShortTitleOrBody(post.getBody(),1));
 			postDTOList.add(createAllPostDTOInstance(post, us.getNameById(post.getAuthorId())));
 		}
 		return postDTOList;
@@ -45,15 +41,9 @@ public class AllPostDTOService {
 		List<PostEntity> postEntitiys = ps.getAll();
 		
 		for (PostEntity post : postEntitiys) {
-			if(post.getCategoryId() == id) {
-				if(post.getTitle().length() >= titleMessageLength) {
-					post.setTitle(post.getTitle().substring(0,titleMessageLength));
-				}
-				if(post.getBody().length() >= bodyMessageLength) {
-					post.setBody(post.getBody().substring(0,bodyMessageLength)+" ...");
-				}
-				postDTOList.add(createAllPostDTOInstance(post, us.getNameById(post.getAuthorId())));
-			}
+			post.setTitle(StringToHtmlService.createShortTitleOrBody(post.getTitle(),0));
+			post.setBody(StringToHtmlService.createShortTitleOrBody(post.getBody(),1));
+			postDTOList.add(createAllPostDTOInstance(post, us.getNameById(post.getAuthorId())));
 		}
 		return postDTOList;
 	}
