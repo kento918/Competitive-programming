@@ -14,7 +14,8 @@ body {
     align-items: center;
     justify-content: flex-start;
     padding: 20px;
-    min-height: calc( 100vh - 60px - 150px ); /* ヘッダーとフッターの高さを引いた高さに設定 */
+    padding-bottom:90px;
+/*    max-height: calc( 100vh - (60px + 80px) );  ヘッダーとフッターの高さを引いた高さに設定 */
 }
 
 .blog-post {

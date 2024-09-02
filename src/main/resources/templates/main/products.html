@@ -1,68 +1,87 @@
 <!DOCTYPE html>
 <html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ページ準備中</title>
-    <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #1e3c72, #2a5298);
-            color: white;
-        }
 
-        .error-container {
-            text-align: center;
-            background: rgba(255, 255, 255, 0.1);
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        }
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" th:href="@{/css/main-top.css}" />
+		<link rel="stylesheet" th:href="@{/css/main-products.css}" />
+		<title>創作品</title>
+	</head>
 
-        .error-code {
-            font-size: 100px;
-            margin: 0;
-        }
+	<body>
+		<div class="contents-container">
+			<div class="content-mene">
+				<p>kento_tech_Home</p>
+				<a class="mene-icon" th:href="@{/}">
+					<img>
+					<p>TOP</p>
+				</a>
+				<a class="mene-icon" th:href="@{/main/about}">
+					<img>
+					<p>ABOUT</p>
+				</a>
+				<a class="mene-icon" th:href="@{/main/products}">
+					<img>
+					<p>PRODUCTS</p>
 
-        .error-message {
-            font-size: 24px;
-            margin: 10px 0;
-        }
+				</a>
+				<a class="mene-icon" th:href="@{/blogs}">
+					<img>
+					<p>BLOG</p>
 
-        .error-description {
-            font-size: 18px;
-            margin: 20px 0;
-        }
+				</a>
+				<div class="mene-icon" id="site-map">
+					<img>
+					<p>SITE MAP</p>
+				</div>
+			</div>
+			<div class="display-cards">
+				<div class="contents-card">
+					<a href="https://github.com/kento918/LerningBasic">
+						<h5 class="contents-title">LerningBasic</h5>
+						<h5 class="contents-body">
+							Java Goldの取得の際に作成した理解度を上げるためのもの<br>
+							基本的なSingleLinkedList等の<br>
+							理解のためのフォルダになります。<br>
+						</h5>
+					</a>
+				</div>
+				<div class="contents-card">
+					<a href="https://github.com/kento918/myLibrarys">
+						<h5 class="contents-title">easyAnnotation</h5>
+						<h5 class="contents-title">
+							アノテーションで変数が入力出来たら楽なのではないか？<br>
+							と考えて実際やってみたら様々な場所で定数を<br>
+							指定する事ができた。<br>
+							StackTraceElementを触ることができて楽しかった。
+						</h5>
+					</a>
+				</div>
+				<div class="contents-card">
+					<a href="https://github.com/kento918/challengeOfRecursion">
+						<h5 class="contents-title">Local Chat Messenger</h5>
+						<h5 class="contents-title">
+							TCP通信を用いてクライアントがサーバーから<br>
+							フェイクの住所、名前、職業を取得するアプリ<br>
+						</h5>
+					</a>
+				</div>
+				<div class="contents-card">
+					<a href="https://github.com/kento918/challengeOfRecursion">
+						<h5 class="contents-title">Remote Procedure Call</h5>
+						<h5 class="contents-title">
+							実際に異なるPCへ転送するようにしたので<br>
+							環境構築に時間がかかった。<br>
+							ポート開放、設定などに時間がかかり、<br>
+							通信するところからいきなり躓いた。<br>
+							課題の部分ではjavaScript - python となっていたが、<br>
+							javaScriptになじみがなさ過ぎて比較的使えるjavaで書いた。<br>
+						</h5>
+					</a>
+				</div>
+			</div>
+		</div>
+	</body>
 
-        .home-link {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 10px 20px;
-            border: 2px solid white;
-            border-radius: 5px;
-            text-decoration: none;
-            color: white;
-            font-size: 16px;
-            transition: background 0.3s, color 0.3s;
-        }
-
-        .home-link:hover {
-            background: white;
-            color: #2a5298;
-        }
-    </style>
-</head>
-<body>
-    <div class="error-container">
-        <h1 class="error-code">準備中</h1>
-        <p class="error-message">ページの準備ができていません</p>
-        <p class="error-description">お手数ですが、後ほど再度お試しください。</p>
-        <a href="/" class="home-link">ホームに戻る</a>
-    </div>
-</body>
 </html>

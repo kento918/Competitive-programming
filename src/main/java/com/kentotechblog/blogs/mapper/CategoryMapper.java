@@ -17,6 +17,6 @@ public interface CategoryMapper {
 			+ "VALUES(#{name}, #{description}, #{parent_id}, #{order_id}, #{image})")
 	void insertCategory(CategoryEntity cate);
 	
-	@Select("select * from category")
+	@Select("SELECT * FROM category")
 	List<CategoryEntity> getCategoryAll();
 }

@@ -11,7 +11,7 @@ body {
     align-items: center;
     justify-content: flex-start;
 /*    ヘッダーとフッターの高さを引いた高さに設定 */
-    min-height: calc( 100vh - 60px - 150px - 40px );
+    max-height: calc( 100vh - 60px - 100px - 40px );
 }
 
 .blog-create-form {

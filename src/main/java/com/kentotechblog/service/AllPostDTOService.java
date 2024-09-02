@@ -29,8 +29,8 @@ public class AllPostDTOService {
 		List<PostEntity> postEntitiys = ps.getAll();
 		
 		for (PostEntity post : postEntitiys) {
-			post.setTitle(StringToHtmlService.createShortTitleOrBody(post.getTitle(),0));
-			post.setBody(StringToHtmlService.createShortTitleOrBody(post.getBody(),1));
+			post.setTitle(StringToHtmlService.cutHtmlMark(post.getTitle(),0));
+			post.setBody(StringToHtmlService.cutHtmlMark(post.getBody(),1));
 			postDTOList.add(createAllPostDTOInstance(post, us.getNameById(post.getAuthorId())));
 		}
 		return postDTOList;
@@ -41,8 +41,8 @@ public class AllPostDTOService {
 		List<PostEntity> postEntitiys = ps.getAll();
 		
 		for (PostEntity post : postEntitiys) {
-			post.setTitle(StringToHtmlService.createShortTitleOrBody(post.getTitle(),0));
-			post.setBody(StringToHtmlService.createShortTitleOrBody(post.getBody(),1));
+			post.setTitle(StringToHtmlService.cutHtmlMark(post.getTitle(),0));
+			post.setBody(StringToHtmlService.cutHtmlMark(post.getBody(),1));
 			postDTOList.add(createAllPostDTOInstance(post, us.getNameById(post.getAuthorId())));
 		}
 		return postDTOList;

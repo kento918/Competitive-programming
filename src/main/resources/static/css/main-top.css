@@ -1,4 +1,5 @@
-@charset "UTF-8";:root {
+@charset "UTF-8";
+:root {
         --main-bg-color: #FAFAFA;
         --body-bg-color: #FAFAFA;
         --sub-bg-color: #D3D3D3;
@@ -38,7 +39,7 @@ a:hover {
         background-color: var(--sub-bg-color);
         color: var(--text-color);
         width: 15vw;
-        height:auto;
+        height:90vh;
         padding-left: auto;
         border-right: solid;
         margin: 10em;
@@ -52,10 +53,9 @@ a:hover {
         border-radius: 50px;
 }
 
-
 .display-main {
         width: 70vw;
-        height:40vw;
+        height:90vh;
         margin-right:auto;
         display: flex;
         flex-direction: row;
@@ -76,11 +76,6 @@ a:hover {
 
 }
 
-.display-main .mainicon-img {
-        width: 250px;
-        height: 250px;
-}
-
 .link-icon{
         width:50px;
         height:50px;
@@ -89,4 +84,46 @@ a:hover {
 
 .name {
         margin: 0;
+}
+
+
+.display-main .mainicon-img {
+        max-width: 250px;
+        max-height: 250px;
+}
+
+/* スマホ用レイアウト */
+@media (max-width: 768px) {
+  .contents-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    height: auto;
+    margin-top: 0;
+  }
+
+  .content-mene {
+    order: 1;
+    width: 100%;
+    height: auto;
+    flex-direction: row;
+    justify-content: space-around;
+    border: none;
+    margin: 0;
+    border-radius: 0;
+  }
+
+  .display-main {
+    order: 2;
+    width: 100%;
+    height: auto;
+    flex-direction: column;
+    margin: 0;
+    margin-top: 20px;
+    border-radius: 0;
+  }
+
+  .self-introduction {
+    padding: 2em;
+  }
 }

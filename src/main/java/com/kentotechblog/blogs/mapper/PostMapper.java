@@ -20,29 +20,29 @@ public interface PostMapper {
 	@Insert("INSERT INTO post(title, body, authorId, categoryId) VALUES (#{title}, #{body}, #{authorId}, #{categoryId})")
 	void insertPost(PostEntity post);
 	
-	@Select("SELECT * FROM post order by createdAt desc")
+	@Select("SELECT * FROM post ORDER BY createdAt DESC")
 	List<PostEntity> selectAll();
 	
-	@Select("select * from post \n"
-		  + "where authorId = 30 \n"
-		  + "order by createdAt desc" )
-	List<PostEntity> getPostByauthorId(int authorid, String key);
+	@Select("SELECT * FROM post \n"
+		  + "WHERE authorId = #{authorid} \n"
+		  + "ORDER BY createdAt DESC" )
+	List<PostEntity> getPostByauthorId(int authorid);
 	
-	@Select("select * from post where id = #{id}")
+	@Select("SELECT * FROM post WHERE id = #{id}")
 	PostEntity getPostByPostid(Long id);
 	
-	@Select("select count(*) from post where categoryId = #{id}")
+	@Select("SELECT count(*) FROM post WHERE categoryId = #{id}")
 	int getCategoryCounter(int id);
 	
-	@Select("select * from post where categoryId = #{id} order by createdAt desc")
+	@Select("SELECT * FROM post WHERE categoryId = #{id} ORDER BY createdAt DESC")
 	List<PostEntity> getPostByCategoryId(int id);
 	
-	@Delete("delete from post where id = #{id}")
+	@Delete("DELETE FROM post WHERE id = #{id}")
 	void deletePost(Long id);
 	
-	@Update("update post set title = #{title},"
+	@Update("UPDATE post SET title = #{title},"
 	        + "body = #{body},"         
 	        + "updatedAt = #{updateAt} "
-	        + "where id = #{postId} ")
+	        + "WHERE id = #{postId} ")
 	void updatePost(String title, String body, LocalDateTime updateAt, Long postId);
 }

@@ -104,6 +104,7 @@ public class PostController {
 	public String toUpdatePost(@PathVariable Long id, Model model) {
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		PostEntity post = postService.getPostByPostid(id);
+		post.setBody(StringToHtmlService.toMarkdown(post.getBody()));
 		String cateName = "";
 		String userName = userService.getNameById(post.getAuthorId());
 		List<CategoryEntity> cateList = cateService.getCategoryAll();

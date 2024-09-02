@@ -7,7 +7,7 @@ body {
 
 .content {
     display: flex;
-    max-height: calc( 100vh - 60px - 100px );
+    max-height: calc( 100vh - 60px - 80px );
 }
 
 .main-content {

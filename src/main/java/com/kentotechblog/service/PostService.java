@@ -26,7 +26,7 @@ public class PostService{
 	}
 
 	public List<PostEntity> getPostByAuthorId(int Authorid) {
-		return postMapper.getPostByauthorId(Authorid, "createAt");
+		return postMapper.getPostByauthorId(Authorid);
 	}
 
 	public PostEntity getPostByPostid(Long id) {

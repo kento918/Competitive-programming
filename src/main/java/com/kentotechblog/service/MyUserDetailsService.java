@@ -14,20 +14,19 @@ import com.kentotechblog.blogs.mapper.UserMapper;
 public class MyUserDetailsService implements UserDetailsService {
 
 	@Autowired
-	private UserMapper mp;
+	private UserMapper userMapper;
 	
 	@Override
 	public UserDetails loadUserByUsername(String username) {
-		if (mp.isGetUserName(username)) {
-			
-			UserEntity user = mp.getUserByName(username);
+		if (userMapper.isGetUserName(username)) {
+
+			UserEntity user = userMapper.getUserByName(username);
 
 			return User.builder()
 					.username(user.getName())
 					.password(user.getPassword()/* + user.getPassword_salt()*/)
 					.roles(getRoles(user))
 					.build();
-
 		} else {
 			throw new UsernameNotFoundException(username);
 		}
@@ -38,9 +37,7 @@ public class MyUserDetailsService implements UserDetailsService {
 			return new String[] { "admin", "user" };
 		} else if (user.getRoles().isEmpty() || user.getRoles().equals("user")) {
 			return new String[] { "user" };
-
-		} else {
-			return new String[] { "user" };
 		}
+		return new String[] { "user" };
 	}
 }

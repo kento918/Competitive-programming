@@ -10,7 +10,6 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 
 import com.kentotechblog.blogs.dto.AllPostDTO;
 import com.kentotechblog.blogs.dto.HomeCategoryDTO;
@@ -29,19 +28,19 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class HomeController {
 	@Autowired
-	UserService us;
+	UserService userService;
 
 	@Autowired
-	PostService ps;
+	PostService postService;
 
 	@Autowired
-	HomeCategoryDTOService cateDTO;
+	HomeCategoryDTOService homecategoryDtoService;
 
 	@Autowired
-	AllPostDTOService apds;
+	AllPostDTOService allpostDtoService;
 
 	@Autowired
-	HomeDTOService HomeDTOS;
+	HomeDTOService homeDtoService;
 
 	@GetMapping("/blogs")
 	public String top(Model model) {
@@ -51,8 +50,8 @@ public class HomeController {
 			flug = true;
 		}
 
-		List<AllPostDTO> list = apds.createAllPost();
-		List<HomeCategoryDTO> cate = cateDTO.createCategoryList();
+		List<AllPostDTO> list = allpostDtoService.createAllPost();
+		List<HomeCategoryDTO> cate = homecategoryDtoService.createCategoryList();
 		list = list.stream().limit(12).collect(Collectors.toList());
 
 		model.addAttribute("post", list);
@@ -66,20 +65,15 @@ public class HomeController {
 		return "blogs/top";
 	}
 
-	@PostMapping("/blogs")
-	public String posttop() {
-		return "blogs/top";
-	}
-
 	@GetMapping("/blogs/userHome")
 	public String userHome(Model model) {
 		try {
 			Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 			String userName = auth.getName();
 			log.info(userName + " come home");
-			List<HomePostDTO> posts = HomeDTOS.createHomePostDTO(userName);
+			List<HomePostDTO> posts = homeDtoService.createHomePostDTO(userName);
 			posts = posts.stream().limit(12).collect(Collectors.toList());
-			HomeUserDTO user = HomeDTOS.createHomeUserDTO(userName);
+			HomeUserDTO user = homeDtoService.createHomeUserDTO(userName);
 			model.addAttribute("username", auth.getName());
 			model.addAttribute("user", user);
 			model.addAttribute("posts", posts);
@@ -96,8 +90,8 @@ public class HomeController {
 			Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 			String userName = auth.getName();
 			log.info(userName + " come home");
-			List<HomePostDTO> posts = HomeDTOS.createHomePostDTO(userName);
-			HomeUserDTO user = HomeDTOS.createHomeUserDTO(userName);
+			List<HomePostDTO> posts = homeDtoService.createHomePostDTO(userName);
+			HomeUserDTO user = homeDtoService.createHomeUserDTO(userName);
 			model.addAttribute("username", auth.getName());
 			model.addAttribute("user", user);
 			model.addAttribute("posts", posts);
